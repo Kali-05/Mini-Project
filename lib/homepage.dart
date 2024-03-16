@@ -9,13 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ScrollController controller = ScrollController();
-  int index = 0;
-  final screen =[
-    HomePage(),
-    profilePage()
-    
-  ];
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-            Expanded(child: IndexedStack(index: index,children: screen,)),
+            // Expanded(child: IndexedStack(index: index,children: screen,)),
             const SizedBox(
               height: 25,
             ),
@@ -270,42 +265,42 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-      ),
+      ),);
 
       //########    NAVIGATION BAR       ###########
 
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-            indicatorColor: Color.fromARGB(255, 14, 50, 210),
-            backgroundColor: Colors.black,
-            labelTextStyle:
-                MaterialStateProperty.all(TextStyle(color: Colors.white))),
-        child: NavigationBar(
-            selectedIndex: index,
-            onDestinationSelected: (index) =>
-                setState(() => this.index = index),
-            destinations: [
-              NavigationDestination(
-                  icon: Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  label: 'Home'),
-              NavigationDestination(
-                  icon: Icon(
-                    Icons.sports_gymnastics,
-                    color: Colors.white,
-                  ),
-                  label: 'Workout'),
-              // NavigationDestination(
-              //     icon: Icon(
-              //       Icons.person,
-              //       color: Colors.white,
-              //     ),
-                  // label: 'Account')
-            ]),
-      ),
-    );
+      // bottomNavigationBar: NavigationBarTheme(
+      //   data: NavigationBarThemeData(
+    //         indicatorColor: Color.fromARGB(255, 14, 50, 210),
+    //         backgroundColor: Colors.black,
+    //         labelTextStyle:
+    //             MaterialStateProperty.all(TextStyle(color: Colors.white))),
+    //     child: NavigationBar(
+    //         selectedIndex: index,
+    //         onDestinationSelected: (index) =>
+    //             setState(() => this.index = index),
+    //         destinations: [
+    //           NavigationDestination(
+    //               icon: Icon(
+    //                 Icons.home,
+    //                 color: Colors.white,
+    //               ),
+    //               label: 'Home'),
+    //           NavigationDestination(
+    //               icon: Icon(
+    //                 Icons.sports_gymnastics,
+    //                 color: Colors.white,
+    //               ),
+    //               label: 'Workout'),
+    //           // NavigationDestination(
+    //           //     icon: Icon(
+    //           //       Icons.person,
+    //           //       color: Colors.white,
+    //           //     ),
+    //               // label: 'Account')
+    //         ]),
+    //   ),
+    // );
   }
 
   Widget buildExerciseRow(String sets, String exerciseName) {
