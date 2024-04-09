@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:justlogin/Widgets/Fonts.dart';
+//import 'package:justlogin/Widgets/Fonts.dart';
 
 class WorkoutPage extends StatefulWidget {
   const WorkoutPage({Key? key}) : super(key: key);
@@ -10,15 +10,17 @@ class WorkoutPage extends StatefulWidget {
 
 class _WorkoutPageState extends State<WorkoutPage> {
   String? selectedDay;
-  final List<String> daysOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
+  final Map<String, List<String>> workouts = {
+    'Sunday': ['Pushups', 'Situps', 'Squats'],
+    'Monday': ['Running', 'Cycling', 'Planks'],
+    'Tuesday': ['Swimming', 'Jumping Jacks', 'Burpees'],
+    'Wednesday': ['Yoga', 'Pilates', 'Stretching'],
+    'Thursday': ['Weightlifting', 'Rowing', 'Hiking'],
+    'Friday': ['Boxing', 'Circuit Training', 'HIIT'],
+    'Saturday': ['Zumba', 'Dancing', 'Jump Rope'],
+  };
+
+  List<String> selectedWorkouts = [];
 
   bool showChecklist = false;
 
@@ -52,10 +54,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
               if (showChecklist)
                 Column(
                   children: [
-                    for (var day in daysOfWeek)
+                    for (var day in workouts.keys)
                       RadioListTile<String>(
-                        overlayColor: MaterialStatePropertyAll(Colors.white),
-                        activeColor: Color.fromARGB(255, 36, 113, 255),
                         title: Text(day),
                         value: day,
                         groupValue: selectedDay,
@@ -65,14 +65,34 @@ class _WorkoutPageState extends State<WorkoutPage> {
                           });
                         },
                       ),
+                    if (selectedDay != null)
+                      ...workouts[selectedDay]!
+                          .map(
+                            (workout) => CheckboxListTile(
+                              title: Text(workout),
+                              value: selectedWorkouts.contains(workout),
+                              onChanged: (value) {
+                                setState(() {
+                                  if (value!) {
+                                    selectedWorkouts.add(workout);
+                                  } else {
+                                    selectedWorkouts.remove(workout);
+                                  }
+                                });
+                              },
+                            ),
+                          )
+                          .toList(),
                     ElevatedButton(
                       onPressed: () {
                         if (selectedDay != null) {
-                          
+                      
                           print('Selected day: $selectedDay');
+                          print('Selected workouts: $selectedWorkouts');
                           setState(() {
                             showChecklist = false; 
                             selectedDay = null; 
+                            selectedWorkouts.clear(); 
                           });
                         } else {
                           showDialog(
