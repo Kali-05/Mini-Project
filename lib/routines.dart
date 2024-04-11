@@ -18,54 +18,147 @@ class _MyRoutinesState extends State<MyRoutines> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Routine 1'),
-            GestureDetector(
-              child: customContainer(
-                backgroundColor: changeColor1,
-                title: 'Brench Press',
-                subTitle: 'chest',
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  decoration: BoxDecoration(color: Colors.red),
+                  child: Column(
+                    children: [
+                      Text('Routine 1'),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor1,
+                          title: 'Brench Press',
+                          subTitle: 'chest',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor1 = changeColor1 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),
+                      Divider(),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor2,
+                          title: 'Bent Over Row',
+                          subTitle: 'Upper Back',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor2 = changeColor2 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),
+                      Divider(),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor3,
+                          title: 'Bicep Curl',
+                          subTitle: 'Biceps',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor3 = changeColor3 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),
+                      Divider(),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor2,
+                          title: 'Bent Over Row',
+                          subTitle: 'Upper Back',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor2 = changeColor2 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),Divider(),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor2,
+                          title: 'Bent Over Row',
+                          subTitle: 'Upper Back',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor2 = changeColor2 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),Divider(),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor2,
+                          title: 'Bent Over Row',
+                          subTitle: 'Upper Back',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor2 = changeColor2 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),Divider(),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor2,
+                          title: 'Bent Over Row',
+                          subTitle: 'Upper Back',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor2 = changeColor2 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),Divider(),
+                      GestureDetector(
+                        child: customContainer(
+                          backgroundColor: changeColor2,
+                          title: 'Bent Over Row',
+                          subTitle: 'Upper Back',
+                        ),
+                        onTap: () {
+                          setState(() {
+                            changeColor2 = changeColor2 == Colors.white
+                                ? const Color.fromARGB(255, 127, 127, 127)
+                                : Colors.white;
+                          });
+                          print('hello');
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              onTap: () {
-                setState(() {
-                  changeColor1 = changeColor1 == Colors.white
-                      ? const Color.fromARGB(255, 127, 127, 127)
-                      : Colors.white;
-                });
-                print('hello');
-              },
             ),
-            Divider(),
-            GestureDetector(
-              child: customContainer(
-                backgroundColor: changeColor2,
-                title: 'Bent Over Row',
-                subTitle: 'Upper Back',
-              ),
-              onTap: () {
-                setState(() {
-                  changeColor2 = changeColor2 == Colors.white
-                      ? const Color.fromARGB(255, 127, 127, 127)
-                      : Colors.white;
-                });
-                print('hello');
-              },
-            ),
-            Divider(),
-            GestureDetector(
-              child: customContainer(
-                backgroundColor: changeColor3,
-                title: 'Bicep Curl',
-                subTitle: 'Biceps',
-              ),
-              onTap: () {
-                setState(() {
-                  changeColor3 = changeColor3 == Colors.white
-                      ? const Color.fromARGB(255, 127, 127, 127)
-                      : Colors.white;
-                });
-                print('hello');
-              },
+            Container(
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(255, 78, 212, 85)),
+              height: 70,
             ),
           ],
         ),
@@ -104,3 +197,4 @@ class _MyRoutinesState extends State<MyRoutines> {
     );
   }
 }
+ 
