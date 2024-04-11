@@ -23,7 +23,8 @@ class _MyRoutinesState extends State<MyRoutines> {
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.red),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255)),
                   child: Column(
                     children: [
                       Text('Routine 1'),
@@ -89,7 +90,8 @@ class _MyRoutinesState extends State<MyRoutines> {
                           });
                           print('hello');
                         },
-                      ),Divider(),
+                      ),
+                      Divider(),
                       GestureDetector(
                         child: customContainer(
                           backgroundColor: changeColor2,
@@ -104,7 +106,8 @@ class _MyRoutinesState extends State<MyRoutines> {
                           });
                           print('hello');
                         },
-                      ),Divider(),
+                      ),
+                      Divider(),
                       GestureDetector(
                         child: customContainer(
                           backgroundColor: changeColor2,
@@ -119,7 +122,8 @@ class _MyRoutinesState extends State<MyRoutines> {
                           });
                           print('hello');
                         },
-                      ),Divider(),
+                      ),
+                      Divider(),
                       GestureDetector(
                         child: customContainer(
                           backgroundColor: changeColor2,
@@ -134,7 +138,8 @@ class _MyRoutinesState extends State<MyRoutines> {
                           });
                           print('hello');
                         },
-                      ),Divider(),
+                      ),
+                      Divider(),
                       GestureDetector(
                         child: customContainer(
                           backgroundColor: changeColor2,
@@ -155,10 +160,19 @@ class _MyRoutinesState extends State<MyRoutines> {
                 ),
               ),
             ),
-            Container(
-              decoration:
-                  BoxDecoration(color: Color.fromARGB(255, 78, 212, 85)),
-              height: 70,
+            GestureDetector(
+
+              child: Container(
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 78, 212, 85)),
+                height: 65,
+                width: double.infinity,
+                alignment: Alignment(0, 0),
+                child: SemiFont(textname: 'submit'),
+              ),
+           onTap: () {
+             Navigator.pop(context);
+           },
             ),
           ],
         ),
@@ -197,4 +211,3 @@ class _MyRoutinesState extends State<MyRoutines> {
     );
   }
 }
- 
