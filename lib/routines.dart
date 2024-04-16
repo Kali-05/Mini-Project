@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:justlogin/Widgets/Fonts.dart';
+import 'package:justlogin/newworkout.dart';
 
 class MyRoutines extends StatefulWidget {
   const MyRoutines({Key? key}) : super(key: key);
@@ -9,9 +9,8 @@ class MyRoutines extends StatefulWidget {
 }
 
 class _MyRoutinesState extends State<MyRoutines> {
-  Color changeColor1 = Colors.white;
-  Color changeColor2 = Colors.white;
-  Color changeColor3 = Colors.white;
+  // Store the names of selected exercises
+  Set<String> selectedExercises = {};
 
   @override
   Widget build(BuildContext context) {
@@ -24,155 +23,74 @@ class _MyRoutinesState extends State<MyRoutines> {
               child: SingleChildScrollView(
                 child: Container(
                   decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255)),
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                  ),
                   child: Column(
                     children: [
-                      Text('Routine 1'),
+                    
                       GestureDetector(
                         child: customContainer(
-                          backgroundColor: changeColor1,
+                          backgroundColor: selectedExercises.contains('Brench Press')
+                              ? const Color.fromARGB(255, 127, 127, 127)
+                              : Colors.white,
                           title: 'Brench Press',
                           subTitle: 'chest',
                         ),
                         onTap: () {
                           setState(() {
-                            changeColor1 = changeColor1 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
+                            // Toggle selection
+                            if (selectedExercises.contains('Brench Press')) {
+                              selectedExercises.remove('Brench Press');
+                            } else {
+                              selectedExercises.add('Brench Press');
+                            }
                           });
-                          print('hello');
                         },
                       ),
                       Divider(),
+                   
                       GestureDetector(
                         child: customContainer(
-                          backgroundColor: changeColor2,
+                          backgroundColor: selectedExercises.contains('Bent Over Row')
+                              ? const Color.fromARGB(255, 127, 127, 127)
+                              : Colors.white,
                           title: 'Bent Over Row',
-                          subTitle: 'Upper Back',
+                          subTitle: 'chest',
                         ),
                         onTap: () {
                           setState(() {
-                            changeColor2 = changeColor2 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
+                          
+                            if (selectedExercises.contains('Bent Over Row')) {
+                              selectedExercises.remove('Bent Over Row');
+                            } else {
+                              selectedExercises.add('Bent Over Row');
+                            }
                           });
-                          print('hello');
                         },
                       ),
                       Divider(),
-                      GestureDetector(
-                        child: customContainer(
-                          backgroundColor: changeColor3,
-                          title: 'Bicep Curl',
-                          subTitle: 'Biceps',
-                        ),
-                        onTap: () {
-                          setState(() {
-                            changeColor3 = changeColor3 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
-                          });
-                          print('hello');
-                        },
-                      ),
-                      Divider(),
-                      GestureDetector(
-                        child: customContainer(
-                          backgroundColor: changeColor2,
-                          title: 'Bent Over Row',
-                          subTitle: 'Upper Back',
-                        ),
-                        onTap: () {
-                          setState(() {
-                            changeColor2 = changeColor2 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
-                          });
-                          print('hello');
-                        },
-                      ),
-                      Divider(),
-                      GestureDetector(
-                        child: customContainer(
-                          backgroundColor: changeColor2,
-                          title: 'Bent Over Row',
-                          subTitle: 'Upper Back',
-                        ),
-                        onTap: () {
-                          setState(() {
-                            changeColor2 = changeColor2 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
-                          });
-                          print('hello');
-                        },
-                      ),
-                      Divider(),
-                      GestureDetector(
-                        child: customContainer(
-                          backgroundColor: changeColor2,
-                          title: 'Bent Over Row',
-                          subTitle: 'Upper Back',
-                        ),
-                        onTap: () {
-                          setState(() {
-                            changeColor2 = changeColor2 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
-                          });
-                          print('hello');
-                        },
-                      ),
-                      Divider(),
-                      GestureDetector(
-                        child: customContainer(
-                          backgroundColor: changeColor2,
-                          title: 'Bent Over Row',
-                          subTitle: 'Upper Back',
-                        ),
-                        onTap: () {
-                          setState(() {
-                            changeColor2 = changeColor2 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
-                          });
-                          print('hello');
-                        },
-                      ),
-                      Divider(),
-                      GestureDetector(
-                        child: customContainer(
-                          backgroundColor: changeColor2,
-                          title: 'Bent Over Row',
-                          subTitle: 'Upper Back',
-                        ),
-                        onTap: () {
-                          setState(() {
-                            changeColor2 = changeColor2 == Colors.white
-                                ? const Color.fromARGB(255, 127, 127, 127)
-                                : Colors.white;
-                          });
-                          print('hello');
-                        },
-                      ),
+                      
                     ],
                   ),
                 ),
               ),
             ),
             GestureDetector(
-
               child: Container(
-                decoration:
-                    BoxDecoration(color: Color.fromARGB(255, 78, 212, 85)),
+                decoration: BoxDecoration(color: Color.fromARGB(255, 78, 212, 85)),
                 height: 65,
                 width: double.infinity,
                 alignment: Alignment(0, 0),
-                child: SemiFont(textname: 'submit'),
+                child: Text('submit'),
               ),
-           onTap: () {
-             Navigator.pop(context);
-           },
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyWorkoutPage(selectedExercises: selectedExercises),
+                  ),
+                );
+              },
             ),
           ],
         ),
